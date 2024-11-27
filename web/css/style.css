@@ -1,0 +1,60 @@
+@import url('colors.css');
+@import url('fonts.css');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Jost;
+    font-weight: 500;
+}
+li{
+    list-style: none;
+}
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+
+}
+header .top-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var(--color-primary-red);
+    width: 100%;
+    
+}
+header .top-header .logo{
+    margin: 1rem 2rem;
+}
+header .top-header .menu ul{
+    display: flex;
+    flex-direction: row;
+    color: white;
+    padding: inherit;
+    
+}
+
+header .top-header .menu ul li{
+    list-style: none;
+    padding: 1rem 0rem;
+}
+
+header .top-header .menu ul li a{
+    position: relative;
+    color: var(--color-primary-black);
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(to bottom, var(--color-primary-dark-blue), var(--color-primary-dark-blue)) no-repeat;
+    background-size: 100% 0%;
+    transition: all 0.2s ease;
+}
+header .top-header .menu ul li a:hover{
+        color: white;
+        background: linear-gradient(to bottom, var(--color-primary-dark-blue), var(--color-primary-dark-blue)) no-repeat;
+        background-size: 100% 100%;
+}
+header .bottom-header{
+    
+}

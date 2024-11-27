@@ -1,0 +1,8 @@
+/* Color palette */
+:root{
+    --color-primary-red: #A60321;
+    --color-primary-dark-blue: #023373;
+    --color-primary-blue : #0477BF;
+    --color-primary-light-blue: #048ABF;
+    --color-primary-black: #0D0D0D;
+}
