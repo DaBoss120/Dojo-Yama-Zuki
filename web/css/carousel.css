@@ -1,0 +1,146 @@
+@import url('colors.css');
+:root{
+    --max-width-carousel: 1500px;
+    --min-width-carousel: 800px;
+}
+.carousel{
+    position: relative;
+    height: 50vh;
+    margin: auto;
+    max-width: var(--max-width-carousel);
+}
+.carousel-slides{
+    width: 100vw;
+    height: 100%;
+    display: none;
+    margin: auto;
+    
+}
+.carousel .carousel-slides img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: var(--max-width-carousel);
+    min-width: var(--min-width-carousel);
+    margin: auto;
+}
+.carousel-arrow-prev, .carousel-arrow-next{
+    background-color: var(--color-primary-red);
+    cursor: pointer;
+    position: absolute;
+    left: 1;
+    top: 50%;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    transform: translate(0%, -50%);
+}
+.carousel-arrow-next{
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+.prev,
+.next {
+    padding: 16px;
+    color: var(--color-primary-black);
+    font-weight: bold;
+    font-size: 18px;
+    transition: all 0.2s ease;
+/* 
+    cursor: pointer;
+    position: absolute;
+    left: 1;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.2s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    transform: translate(0%, -50%); */
+}
+.prev{
+    background: linear-gradient(to bottom, var(--color-primary-dark-blue), var(--color-primary-dark-blue)) no-repeat;
+    background-size: 0% 100%;
+}
+.prev:hover{
+    background-size: 100% 100%;
+    color: white;
+}
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+    background: linear-gradient(to bottom, var(--color-primary-dark-blue), var(--color-primary-dark-blue)) no-repeat;
+    /* Make background appreat from right to left */
+    background-position: right;
+    background-size: 0% 100%;
+}
+.next:hover{
+    background-size: 100% 100%;
+    color: white;
+}
+
+@media screen and (min-width: 1800px){
+    .carousel-slides img{
+        border-radius: 20px;
+    }
+    
+}
+.dots{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    top: 92%;
+    transform: translate(-50%, -50%);
+    padding: 5px;
+    background-color: var(--color-primary-red);
+    opacity: 0.2;
+    border-radius: 90px;
+    /* box-shadow: 0 0px 25px rgba(0, 0, 0, .25); */
+    /* backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); */
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    transition: all 0.2s ease 0.5s;
+}
+.dots:hover{
+    opacity: 1;
+    /* Make it so that the hover has 0s delay but the un-hover still has the 0.5s delay */
+    transition-delay: 0s;
+}
+.dot{
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    /* background-color: #bbb; */
+    background: var(--color-primary-black);
+    border-radius: 90px;
+    box-shadow: 0 0px 6px rgba(0, 0, 0, 0.1);
+    /* backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); */
+    /* border: 1px solid rgba(0, 0, 0, 0.25); */
+    border-radius: 50%;
+    display: inline-block;
+    transition:
+        /*background-color*/
+        0.2s ease;
+}
+.active,
+.dot:hover {
+    /* background-color: #717171; */
+    background: rgb(255, 255, 255);
+    border-radius: 90px;
+    /* box-shadow: 0 0px 6px rgba(0, 0, 0, 0.2); */
+    /* border: 1px solid rgba(0, 0, 0, 0.25); */
+    transform: scale(1.1);
+
+}
