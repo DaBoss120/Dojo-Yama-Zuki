@@ -5,7 +5,7 @@
 }
 .carousel{
     position: relative;
-    height: 50vh;
+    height: 40vh;
     margin: auto;
     max-width: var(--max-width-carousel);
 }
