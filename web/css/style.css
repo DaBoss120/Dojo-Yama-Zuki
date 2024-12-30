@@ -1,25 +1,47 @@
 @import url('colors.css');
 @import url('fonts.css');
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Jost;
     font-weight: 500;
 }
-html{
+
+html {
     background-color: var(--color-primary-black);
 }
-li{
+
+p {
+    font-size: 1.2rem;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+li {
     list-style: none;
 }
-header{
+
+a {
+    font-size: 1.2rem;
+}
+
+header {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100vw;
 }
-header .top-header{
+
+header .top-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -27,43 +49,65 @@ header .top-header{
     width: 100%;
     margin: 0px 50vw;
 }
-.logo img{
+
+.logo img {
     margin-left: 5vw;
 }
-.menu{
+
+.menu {
     margin-right: 5vw;
 }
-header .top-header .logo{
-    margin: 1rem 2rem;
+
+header .top-header .logo {
+    margin: 0.2rem 2rem;
+    align-self: center;
+    display: flex;
 }
-header .top-header .menu ul{
+header .top-header .logo a{
+    display: flex;
+}
+header .top-header .logo img {
+    width: 70px;
+    height: auto;
+    aspect-ratio: 1/1;
+    /* margin: 1rem 2rem; */
+}
+
+header .top-header .menu ul {
     display: flex;
     flex-direction: row;
     color: white;
     padding: inherit;
-    
+    height: 100%;
 }
 
-header .top-header .menu ul li{
+header .top-header .menu ul li {
+    height: 100%;
     list-style: none;
-    padding: 1rem 0rem;
+    /* padding: 1rem 0rem; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
-header .top-header .menu ul li a{
+header .top-header .menu ul li a {
     position: relative;
     color: var(--color-primary-black);
     text-decoration: none;
-    padding: 1rem 1.5rem;
+    height: 100%;
+    padding: 2rem;
     background: linear-gradient(to bottom, var(--color-primary-dark-blue), var(--color-primary-dark-blue)) no-repeat;
     background-size: 100% 0%;
     transition: all 0.2s ease;
 }
-header .top-header .menu ul li a:hover{
-        color: white;
-        background: linear-gradient(to bottom, var(--color-primary-dark-blue), var(--color-primary-dark-blue)) no-repeat;
-        background-size: 100% 100%;
+
+header .top-header .menu ul li a:hover {
+    color: white;
+    background: linear-gradient(to bottom, var(--color-primary-dark-blue), var(--color-primary-dark-blue)) no-repeat;
+    background-size: 100% 100%;
 }
-header .bottom-header{
+
+header .bottom-header {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -71,35 +115,37 @@ header .bottom-header{
     background-color: var(--color-primary-black);
 
 }
-header .bottom-header h1{
+
+header .bottom-header h1 {
     font-size: 4rem;
     text-align: center;
     color: white;
     color: var(--color-primary-red);
 }
 
-header .animated-text h1{
+header .animated-text h1 {
     font-size: 6rem;
     font-weight: 900;
     text-align: center;
 
     --bg-size: 200%;
-    background: linear-gradient(90deg, 
-    var(--color-primary-red),
-    var(--color-primary-black),
-    var(--color-primary-red)) 0 0 / var(--bg-size) 100%;
-    color:  transparent;
+    background: linear-gradient(90deg,
+            var(--color-primary-red),
+            var(--color-primary-black),
+            var(--color-primary-red)) 0 0 / var(--bg-size) 100%;
+    color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
 }
-@media(prefers-reduced-motion: no-preference){
-    header .animated-text h1{
+
+@media(prefers-reduced-motion: no-preference) {
+    header .animated-text h1 {
         animation: text-gradient 5s linear infinite reverse;
     }
 
-    @keyframes text-gradient{
-        to{
+    @keyframes text-gradient {
+        to {
             background-position: var(--bg-size) 0;
         }
-    }   
+    }
 }

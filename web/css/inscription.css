@@ -1,0 +1,70 @@
+@import url('colors.css');
+.plans-inscriptions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 80vw;
+    height: auto;
+    margin: auto;
+    margin-top: 4rem;
+    max-width: 1400px;
+}
+.plan{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to bottom, var(--color-primary-red), var(--color-primary-red)) no-repeat;
+    background-size: 100% 0%;
+    background-color:var(--color-primary-dark-blue) ;
+    width: 40%;
+    clip-path: polygon(10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%, 0% 10%);
+    transition: all 0.2s;
+
+}
+.plan:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(to bottom, var(--color-primary-red), var(--color-primary-red)) no-repeat;
+        background-size: 100% 100%;
+}
+.plan *{
+    margin: 0.5rem 0;
+}
+.button-inscription{
+display:flex ;
+justify-content: center;
+align-items: center;
+width: 80vw;
+margin: auto;
+margin-top: 3rem;
+max-width: 1400px;
+}
+.button-inscription a{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    width: 100%;
+    text-decoration: none;
+}
+.button-inscription button{
+    background: linear-gradient(to bottom, var(--color-primary-dark-blue), var(--color-primary-dark-blue)) no-repeat;
+    background-size: 100% 0%;
+    background-color: var(--color-primary-red);
+    font-size: 1.5rem;
+    color: white;
+    width: 30%;
+    height: 4rem;
+    border: none;
+    clip-path: polygon(10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%, 0% 10%);
+    cursor: pointer;
+    transition: all 0.2s;
+
+}
+.button-inscription button:hover{
+    transform: translateY(-5px);
+    background: linear-gradient(to bottom, var(--color-primary-dark-blue), var(--color-primary-dark-blue)) no-repeat;
+    background-size: 100% 100%;
+}
