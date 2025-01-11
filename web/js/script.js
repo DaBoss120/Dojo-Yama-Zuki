@@ -1,4 +1,5 @@
 "use strict";
+// import { getImages } from './getImages';
 var menu = document.getElementById('menu');
 
 window.addEventListener('DOMContentLoaded', function () {

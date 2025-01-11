@@ -1,0 +1,27 @@
+@import url('colors.css');
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+}
+.all-photos{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80%;
+    max-width: 1800px;
+    height: auto;
+    margin-top: 4rem;
+}
+.all-photos img{
+    margin: 1rem;
+    width: 30%;
+    min-width: 350px;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+}

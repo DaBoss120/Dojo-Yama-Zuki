@@ -1,0 +1,24 @@
+{
+  "name": "dojo-karate-avully",
+  "version": "1.0.0",
+  "description": "Website for the karate dojo of Avully",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaBoss120/Dojo-Yama-Zuki.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DaBoss120/Dojo-Yama-Zuki/issues"
+  },
+  "homepage": "https://github.com/DaBoss120/Dojo-Yama-Zuki#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
