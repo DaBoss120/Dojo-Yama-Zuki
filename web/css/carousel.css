@@ -144,3 +144,10 @@
     transform: scale(1.1);
 
 }
+@media screen and (max-width: 1100px){
+    .carousel .carousel-slides img{
+        min-width: 0px;
+        width: 100%;
+    }
+    
+}
