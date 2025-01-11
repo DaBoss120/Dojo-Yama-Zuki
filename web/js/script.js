@@ -14,3 +14,21 @@ window.addEventListener('DOMContentLoaded', function () {
                 </ul>
     `
 });
+
+function toggleMenu() {
+    // const hamburger = document.querySelector(".hamburger");
+    menu.style.display == 'block' ? menu.style.display = "none" : menu.style.display = 'block';
+    menu.classList.toggle('show');
+    // if (menu.style.display === 'block') {
+    //     menu.style.display = 'none';
+    // } else {
+    //     menu.style.display = 'block';
+    // }
+};
+window.addEventListener('resize', function () {
+    if (window.innerWidth > 1100) {
+        menu.style.display = 'flex';
+    } else {
+        menu.style.display = 'none';
+    }
+});
