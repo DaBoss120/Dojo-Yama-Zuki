@@ -9,7 +9,7 @@ app.use(cors({
     origin: 'https://daboss120.github.io' // Your GitHub Pages URL
 }));
 app.get('/api/getImages', (req, res) => {
-    const imageDir = path.join(__dirname, 'img/gallery'); // Correct path to image directory
+    const imageDir = path.join(__dirname, '/img/gallery'); // Correct path to image directory
     fs.readdir(imageDir, (err, files) => {
         if (err) {
             console.error(err);
