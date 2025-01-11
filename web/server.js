@@ -1,10 +1,13 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const cors = require('cors'); // Add this line
 const app = express();
 
 app.use(express.static(__dirname)); // Serve static files from the 'web' directory
-
+app.use(cors({
+    origin: 'https://daboss120.github.io' // Your GitHub Pages URL
+}));
 app.get('/api/getImages', (req, res) => {
     const imageDir = path.join(__dirname, 'img/gallery'); // Correct path to image directory
     fs.readdir(imageDir, (err, files) => {
