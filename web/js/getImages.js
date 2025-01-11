@@ -1,6 +1,6 @@
 async function getImages() {
     try {
-        const response = await fetch('/api/getImages');
+        const response = await fetch('https://files-539462895857.europe-west1.run.app');
         const images = await response.json();
         let html = '';
         images.forEach(onePhoto => {
