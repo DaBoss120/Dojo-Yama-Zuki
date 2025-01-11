@@ -48,3 +48,6 @@ p{
 .person-comite p{
     color: white;
 }
+.person-comite p:nth-of-type(2) {
+font-size: max(1.5vw, 18.72px);
+}
