@@ -17,8 +17,25 @@ window.addEventListener('DOMContentLoaded', function () {
 
 function toggleMenu() {
     // const hamburger = document.querySelector(".hamburger");
-    menu.style.display == 'block' ? menu.style.display = "none" : menu.style.display = 'block';
-    menu.classList.toggle('show');
+    // menu.style.display == 'block' ? menu.style.display = "none" : menu.style.display = 'block';
+    
+    const menu = document.querySelector('header .top-header .menu');
+    if (menu.classList.contains('show')) {
+        menu.classList.remove('show');
+        menu.classList.add('closing');
+        // When the close animation ends, clean up
+        menu.addEventListener('animationend', function handler() {
+            // Wait for all animations to end
+            setTimeout(() => {
+                menu.classList.remove('closing');
+                menu.removeEventListener('animationend', handler);
+            }, 200);
+        });
+    }
+    else{
+        menu.classList.add('show');
+        menu.style.display = 'flex';
+    }
     // if (menu.style.display === 'block') {
     //     menu.style.display = 'none';
     // } else {
