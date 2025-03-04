@@ -7,7 +7,7 @@ main{
     /* width: 100%; */
 }
 p{
-    font-size: max(2vw, 24.92px);
+    font-size: max(1.6vw, 24.92px);
 }
 .comite{
     display: flex;
@@ -27,7 +27,8 @@ p{
     align-items: center;
     justify-content: center;
     min-width: 250px;
-    width: 25%;
+    max-width: 450px;
+    width: 35%;
     height: auto;
     margin: 2rem 1rem;
     background: linear-gradient(to bottom, var(--color-primary-red), var(--color-primary-red)) no-repeat;
@@ -49,5 +50,5 @@ p{
     color: white;
 }
 .person-comite p:nth-of-type(2) {
-font-size: max(1.5vw, 18.72px);
+font-size: max(1.2vw, 18.72px);
 }
