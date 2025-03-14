@@ -14,7 +14,9 @@ html {
     background-color: var(--color-primary-black);
     height: 100vh;
 }
-
+main{
+    padding-bottom: 5rem;
+}
 p {
     font-size: 1.2rem;
 }
@@ -60,7 +62,8 @@ header .top-header {
 }
 
 .logo img {
-    margin-left: 5vw;
+    /* margin-left: 5vw; */
+    border-radius: .5rem;
     z-index: 2;
 }
 
@@ -209,7 +212,7 @@ header .animated-text h1 {
         justify-self: center;
         opacity: 1;
         align-self: center;
-        margin-right: 5rem;
+        margin-right: 2rem;
         z-index: 2;
         /* size: 5rem; */
     }
@@ -378,6 +381,6 @@ header .animated-text h1 {
     }
 
     header .animated-text h1 {
-        font-size: 4rem;
+        font-size: min(12vw, 6rem); ;
     }
 }

@@ -1,0 +1,19 @@
+.contact{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+a{
+    color: var(--color-primary-light-blue);
+}
+.plan{
+    a{
+        transition: color 0.2s;
+    }
+}
+.plan:hover{
+    a{
+        color: var(--color-primary-black);
+    }
+}
