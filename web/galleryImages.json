@@ -5,11 +5,6 @@
         "url": "charlein-gracia-mqKKCsZgzXQ-unsplash.jpg"
     },
     {
-        "id": 2,
-        "title": "Image 2",
-        "url": "thao-lee-igLzPKOvZNw-unsplash.jpg"
-    },
-    {
         "id": 3,
         "title": "Image 3",
         "url": "thao-lee-Xl-ilWBKJNk-unsplash.jpg"
@@ -30,18 +25,8 @@
         "url": "imgdojo2.webp"
     },
     {
-        "id": 7,
-        "title": "Image 7",
-        "url": "imgdojo3.webp"
-    },
-    {
         "id": 8,
         "title": "Image 8",
         "url": "imgdojo4.webp"
-    },
-    {
-        "id": 9,
-        "title": "Image 9",
-        "url": "imgdojo5.webp"
     }
 ]

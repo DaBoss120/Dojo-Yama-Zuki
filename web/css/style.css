@@ -14,18 +14,24 @@ html {
     background-color: var(--color-primary-black);
     height: 100vh;
 }
-main{
+
+main {
     padding-bottom: 5rem;
 }
+
 p {
     font-size: 1.2rem;
+    color: white;
 }
-h1{
+
+h1 {
     margin: 2rem 0;
 }
+
 h2 {
     font-weight: 600;
     font-size: 2rem;
+    color: white;
 }
 
 h3 {
@@ -138,6 +144,35 @@ header .bottom-header h1 {
     color: var(--color-primary-red);
 }
 
+.text-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: auto;
+    padding: 2rem 0;
+}
+
+.text-block * {
+    margin: 0.5rem 0;
+}
+/* Make the text stick to the left even with align-items: center on the parent */
+.text-block :is(h2, p){
+    align-self: baseline;
+}
+
+.text-block-wide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    max-width: 1500px;
+    height: 100%;
+    padding: 2rem 0;
+}
+
 header .animated-text h1 {
     font-size: 6rem;
     font-weight: 900;
@@ -187,7 +222,7 @@ header .animated-text h1 {
 
 .plan:hover {
     transform: translateY(-5px);
-    background: linear-gradient(to bottom, var(--color-primary-red), var(--color-primary-red)) no-repeat;
+    /* background: linear-gradient(to bottom, var(--color-primary-red), var(--color-primary-red)) no-repeat; */
     background-size: 100% 100%;
 }
 
@@ -204,6 +239,11 @@ header .animated-text h1 {
 }
 
 @media (max-width: 1100px) {
+
+    * {
+        /* Prevent default browser isual effect when clicking on a link */
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
 
     /* Mobile-specific styles */
     .hamburger {
@@ -263,6 +303,7 @@ header .animated-text h1 {
             height: 100vh;
         }
     }
+
     @keyframes backgroundFadeIn {
         from {
             opacity: 0.5;
@@ -271,11 +312,13 @@ header .animated-text h1 {
         to {
             opacity: 1;
         }
-        
+
     }
+
     header .top-header .menu.closing {
         animation: menuBackgroundSlideUp 0.4s ease-in forwards;
     }
+
     @keyframes menuBackgroundSlideUp {
 
         from {
@@ -313,11 +356,17 @@ header .animated-text h1 {
 
     header .top-header .menu ul li a {
         opacity: 0;
-        width: 50%;
+        width: 75%;
         text-align: center;
         margin: auto;
         font-size: 25px;
         font-weight: 700;
+        background: none;
+
+    }
+
+    header .top-header .menu ul li a:hover {
+        background: none
     }
 
     header .top-header .menu.show ul li a {
@@ -361,9 +410,11 @@ header .animated-text h1 {
     header .top-header .menu.show ul li:nth-child(6) a {
         animation-delay: 0.7s;
     }
-    header .top-header .menu.closing ul li a{
+
+    header .top-header .menu.closing ul li a {
         animation: fadeOut 0.2s ease forwards;
     }
+
     @keyframes fadeOut {
         from {
             opacity: 1;
@@ -375,12 +426,14 @@ header .animated-text h1 {
             transform: translateY(-20px);
         }
     }
+
     .plan {
         width: 80%;
         min-width: unset;
     }
 
     header .animated-text h1 {
-        font-size: min(12vw, 6rem); ;
+        font-size: min(12vw, 6rem);
+        ;
     }
 }
