@@ -13,7 +13,9 @@ window.addEventListener('DOMContentLoaded', function () {
                 </ul>
     `
     this.document.querySelector('main').style.transition = 'opacity 0.5s';
-    this.document.querySelector('main').style.opacity = 1;
+    setTimeout(() => {
+        this.document.querySelector('main').style.opacity = 1;
+    }, 10);
 });
 
 function toggleMenu() {
