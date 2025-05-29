@@ -149,5 +149,21 @@
         min-width: 0px;
         width: 100%;
     }
+    .carousel-arrow-prev, .carousel-arrow-next{
+        background-color: #a6032175;
+        transition: 0.2s all 0.8s;
+    }
+    .carousel-arrow-prev:active, .carousel-arrow-next:active{
+        background-color: var(--color-primary-red);
+        transition-delay: 0s;
+    } 
+    .prev:hover,
+    .next:hover,
+    .active {
+        transition: none;
+        background-size: 0% 100%;
+        transform: none;
+        color: inherit;
+    }
     
 }
