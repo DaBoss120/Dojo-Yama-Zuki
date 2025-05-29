@@ -435,7 +435,7 @@ header .top-header .menu ul li a:hover {
         min-width: unset;
     }
 
-    header .animated-text h1 {
+   .animated-text h1 {
         font-size: min(12vw, 6rem);
         ;
     }
