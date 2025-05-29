@@ -131,7 +131,7 @@ header .top-header .menu ul li a:hover {
     background-size: 100% 100%;
 }
 
-header .bottom-header {
+.bottom-header {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -140,7 +140,7 @@ header .bottom-header {
 
 }
 
-header .bottom-header h1 {
+.bottom-header h1 {
     font-size: 4rem;
     text-align: center;
     color: white;
@@ -176,7 +176,7 @@ header .bottom-header h1 {
     padding: 2rem 0;
 }
 
-header .animated-text h1 {
+ .animated-text h1 {
     font-size: 6rem;
     font-weight: 900;
     text-align: center;
@@ -192,7 +192,7 @@ header .animated-text h1 {
 }
 
 @media(prefers-reduced-motion: no-preference) {
-    header .animated-text h1 {
+     .animated-text h1 {
         animation: text-gradient 5s linear infinite reverse;
     }
 

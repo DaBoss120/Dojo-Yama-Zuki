@@ -12,6 +12,8 @@ window.addEventListener('DOMContentLoaded', function () {
                     <li><a href="gallerie.html">Gallerie</a></li>
                 </ul>
     `
+    this.document.querySelector('main').style.transition = 'opacity 0.5s';
+    this.document.querySelector('main').style.opacity = 1;
 });
 
 function toggleMenu() {
@@ -47,7 +49,7 @@ function toggleMenu() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
         setTimeout(() => {
-        document.body.classList.add('no-scroll');
+            document.body.classList.add('no-scroll');
         }, 200);
     }
     // if (menu.style.display === 'block') {

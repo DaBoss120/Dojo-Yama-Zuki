@@ -11,6 +11,52 @@ document.addEventListener('DOMContentLoaded', () => {
     let startX, startY, currentX, currentY;
     let dragThreshold = 50;
 
+    // --- Function for 3D Vignette Hover Effects ---
+    function initVignetteHoverEffects(container) {
+
+        // Select only images directly within the container that are not the modal image itself
+        const vignettes = container.querySelectorAll('img:not(#modalImage)');
+        const maxRotate = 6; // Max rotation in degrees for a subtle effect
+
+        vignettes.forEach(vignette => {
+            // Prevent adding listeners multiple times if this function is called again
+            if (vignette.dataset.hoverEffectAttached === 'true') {
+                return;
+            }
+            
+
+            vignette.addEventListener('mousemove', (event) => {
+                const rect = vignette.getBoundingClientRect();
+                const x = event.clientX - rect.left; // Mouse X relative to element
+                const y = event.clientY - rect.top;  // Mouse Y relative to element
+                const { width, height } = rect;
+
+                // Normalize mouse position: -0.5 to 0.5 for center, then scale to -1 to 1
+                const normalizedX = (x / width - 0.5) * 2;
+                const normalizedY = (y / height - 0.5) * 2;
+
+                // Rotation: mouse top-left -> top edge tilts away (+rotateX), left edge tilts away (-rotateY)
+                const rotateY = -normalizedX * maxRotate;
+                const rotateX = normalizedY * maxRotate;
+
+                // Subtle pop-out effect
+                const translateZ = 5 // Pop out more
+                const scale = 1.05;   // Slightly enlarge
+
+                vignette.style.transition = 'transform 0.05s linear'; // Fast, direct follow
+                vignette.style.transform = `rotateX(${-rotateX}deg) rotateY(${-rotateY}deg) translateZ(${translateZ}px) scale(${scale})`;
+            });
+
+            vignette.addEventListener('mouseleave', () => {
+                // Use the transition defined in CSS for a smoother reset
+                vignette.style.transition = 'transform 0.4s cubic-bezier(0.23, 1, 0.32, 1)';
+                vignette.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0px) scale(1)';
+            });
+
+            vignette.dataset.hoverEffectAttached = 'true';
+        });
+    }
+
     // --- Open Modal Function ---
     function openModal(imgElement) {
         if (isModalOpening || modal.classList.contains('open')) return;
@@ -42,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 isModalOpening = false;
                 return;
             }
-            
+
             const viewportWidth = window.innerWidth;
             const viewportHeight = window.innerHeight;
             const computedStyle = window.getComputedStyle(modalImg);
@@ -77,13 +123,13 @@ document.addEventListener('DOMContentLoaded', () => {
             // 1. Set modalImg to its final W/H dimensions.
             modalImg.style.width = `${finalModalRect.width}px`;
             modalImg.style.height = `${finalModalRect.height}px`;
-            
+
             // 2. Calculate initial scale to make the (now final-dimensioned) modalImg
             //    appear as small as the thumbnail.
             const initialScaleX = thumbRect.width / finalModalRect.width;
             const initialScaleY = thumbRect.height / finalModalRect.height;
-            const initialScale = Math.min(initialScaleX, initialScaleY); 
-            
+            const initialScale = Math.min(initialScaleX, initialScaleY);
+
             // 3. Position the (final-dimensioned) modalImg so its CENTER aligns 
             //    with the thumbnail's CENTER. This is the top-left for the unscaled element.
             const initialLeft = thumbRect.left + (thumbRect.width - finalModalRect.width) / 2;
@@ -91,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             modalImg.style.left = `${initialLeft}px`;
             modalImg.style.top = `${initialTop}px`;
-            
+
             // 4. Apply the initial scale. Since transform-origin is center,
             //    it scales around the now-aligned center, making it visually match the thumbnail.
             modalImg.style.transform = `scale(${initialScale})`;
@@ -118,12 +164,12 @@ document.addEventListener('DOMContentLoaded', () => {
             // Target styles for the animation:
             modalImg.style.left = `${finalModalRect.left}px`; // Target center position
             modalImg.style.top = `${finalModalRect.top}px`;   // Target center position
-            modalImg.style.transform = 'scale(1)'; 
+            modalImg.style.transform = 'scale(1)';
             modalImg.style.opacity = '1';
 
             setTimeout(() => {
                 if (isModalOpening || modal.classList.contains('open') || modal.style.display === 'flex') {
-                     modalImg.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+                    modalImg.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
                 }
                 modal.classList.add('open');
                 isModalOpening = false;
@@ -147,14 +193,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modal.style.display === 'none') return;
         const wasOpening = isModalOpening;
         isModalOpening = false;
-        
+
         if (wasOpening && !modal.classList.contains('open')) {
             modal.style.transition = 'opacity 0.1s linear, background-color 0.1s linear';
             modal.style.opacity = '0'; modal.style.backgroundColor = 'rgba(0,0,0,0)';
             modalImg.style.transition = 'opacity 0.1s linear'; modalImg.style.opacity = '0';
             setTimeout(() => {
                 modal.style.display = 'none'; document.body.style.overflow = '';
-                Object.assign(modalImg.style, { position: 'fixed', left: '', top: '', width: '', height: '', transform: '', transition: '', objectFit: 'contain', opacity: '0'});
+                Object.assign(modalImg.style, { position: 'fixed', left: '', top: '', width: '', height: '', transform: '', transition: '', objectFit: 'contain', opacity: '0' });
                 Object.assign(modal.style, { opacity: '1', transition: '' });
                 originalThumb = null; finalModalRect = null;
             }, 100);
@@ -168,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (animateBackToThumb && originalThumb && finalModalRect) {
             const thumbRect = originalThumb.getBoundingClientRect();
-            
+
             modalImg.style.transition = `
                 left 0.3s ease-in-out, 
                 top 0.3s ease-in-out, 
@@ -212,10 +258,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function handleGestureStart(e) {
         if (e.target !== modalImg || !modal.classList.contains('open') || isModalOpening) return;
         isDragging = true;
-        
+
         Object.assign(modalImg.style, {
             transition: 'none',
-            transform: 'scale(1) translate(0px, 0px)' 
+            transform: 'scale(1) translate(0px, 0px)'
         });
         modalImg.classList.add('swiping');
 
@@ -231,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const diffX = currentX - startX;
         let diffY = currentY - startY;
         if (diffY < 0) diffY *= 0.3;
-        
+
         modalImg.style.transform = `scale(1) translate(${diffX}px, ${diffY}px)`;
         e.preventDefault();
     }
@@ -247,7 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (diffY > dragThreshold) {
             const opacity = Math.max(0, 1 - (diffY / (window.innerHeight / 2)));
             modalImg.style.opacity = opacity.toString();
-            closeModal(true); 
+            closeModal(true);
         } else {
             modalImg.style.transform = 'scale(1) translate(0px, 0px)';
             modalImg.style.opacity = '1';
@@ -258,7 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 300);
         }
     }
-     if (modalImg) {
+    if (modalImg) {
         modalImg.addEventListener('mousedown', handleGestureStart);
         modalImg.addEventListener('touchstart', handleGestureStart, { passive: false });
         document.addEventListener('mousemove', handleGestureMove);
@@ -266,16 +312,26 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('mouseup', handleGestureEnd);
         document.addEventListener('touchend', handleGestureEnd);
     }
-    
-    const observer = new MutationObserver((mutationsList, observer) => {
+
+    // --- MutationObserver to apply hover effects when images are loaded ---
+    const observer = new MutationObserver((mutationsList, obs) => {
         for(const mutation of mutationsList) {
             if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-                // console.log('Gallery content changed, listeners are attached via delegation.');
+                // New images have been added to the galleryContainer
+                if (galleryContainer && window.innerWidth >= 1100) { // Ensure galleryContainer is valid
+                    initVignetteHoverEffects(galleryContainer);
+                }
             }
         }
     });
 
-    if (galleryContainer) {
+    if (galleryContainer && window.innerWidth >= 1100) {
         observer.observe(galleryContainer, { childList: true, subtree: false });
+        // Call once initially in case images are already present (e.g. if not from JSON)
+        // However, for images loaded by getImagesFromJson, the observer is the primary way.
+        // If getImagesFromJson runs after this script, the observer will catch it.
+        // If getImagesFromJson has already run and populated images when this script executes,
+        // this initial call will catch them.
+        initVignetteHoverEffects(galleryContainer); 
     }
 });

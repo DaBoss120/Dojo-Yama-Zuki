@@ -1,14 +1,15 @@
 @import url('colors.css');
 
-main{
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100vw;
-        position: relative; /* Added for positioning context if needed */
+    position: relative;
 }
-.all-photos{
+
+.all-photos {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -18,50 +19,53 @@ main{
     max-width: 1800px;
     height: auto;
     margin-top: 4rem;
+    /* Adds perspective for 3D effects on child images */
+    perspective: 1200px;
+
 }
-.all-photos img{
+
+.all-photos img {
     margin: 1rem;
     width: 30%;
     min-width: 350px;
     object-fit: cover;
     aspect-ratio: 4/3;
-    cursor: pointer; /* Add cursor to indicate clickable */
-    transition: transform 0.2s ease-in-out; /* For subtle hover effect if desired */
+    cursor: pointer;
+    /* Transition for modal opening and 3D hover effect reset */
+    /* The hover follow itself will have a faster, linear transition set by JS */
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    /* transition: transform 0.2s ease-in-out; */
+
 
 }
-.all-photos img:hover{
-    transform: scale(1.05); /* Slightly enlarge image on hover */
+
+.all-photos img:hover {
+    transform: scale(1.05);
+    /* Slightly enlarge image on hover */
 }
 
 /* Modal Styles */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1000; /* Sit on top */
-    /* padding-top: 0; Remove padding, JS will handle centering */
+    display: none;
+    position: fixed;
+    z-index: 1000;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: hidden; 
-    background-color: rgba(0, 0, 0, 0); /* Initial transparent background, JS will animate */
-    /* display: flex; /* We might not need flex if JS positions precisely */
-    /* align-items: center; */
-    /* justify-content: center; */
-    transition: background-color 0.4s ease-in-out; /* For modal background fade */
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.4s ease-in-out;
 }
 
 .modal-content {
-    /* margin: auto; No margin auto if position:fixed and JS handles position */
     display: block;
-    /* max-width/max-height will be used by JS to calculate target, but JS sets actual width/height */
     max-width: 90vw;
     max-height: 90vh;
-    object-fit: contain; /* Default for enlarged view */
-    position: fixed; /* Will be controlled by JS */
-    opacity: 0; /* Start hidden, JS will animate */
-    transform: translate(0,0) scale(1); /* Base transform state */
-    /* Transitions will be set dynamically by JS */
+    object-fit: contain;
+    position: fixed;
+    opacity: 0;
+    transform: translate(0, 0) scale(1);
 }
 
 /* Close Button (no changes needed from previous version) */

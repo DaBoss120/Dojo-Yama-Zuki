@@ -30,8 +30,13 @@ function showSlides(nb) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
     // Show correct slide and dot
+    slides[slideIndex - 1].style.opacity = "0";
+    slides[slideIndex - 1].style.transition = "opacity 0.5s";
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
+    setTimeout(() => {
+        slides[slideIndex - 1].style.opacity = "1";
+    }, 10);
     // Clear interval so when a dot or arrow is clicked the five seconds reset to prevent slide skip just after manual skip
     clearInterval(slideAuto);
     slideAuto = setInterval(() => {
