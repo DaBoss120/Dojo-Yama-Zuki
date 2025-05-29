@@ -6,6 +6,7 @@ main{
     align-items: center;
     justify-content: center;
     width: 100vw;
+        position: relative; /* Added for positioning context if needed */
 }
 .all-photos{
     display: flex;
@@ -24,4 +25,65 @@ main{
     min-width: 350px;
     object-fit: cover;
     aspect-ratio: 4/3;
+    cursor: pointer; /* Add cursor to indicate clickable */
+    transition: transform 0.2s ease-in-out; /* For subtle hover effect if desired */
+
+}
+.all-photos img:hover{
+    transform: scale(1.05); /* Slightly enlarge image on hover */
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    /* padding-top: 0; Remove padding, JS will handle centering */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; 
+    background-color: rgba(0, 0, 0, 0); /* Initial transparent background, JS will animate */
+    /* display: flex; /* We might not need flex if JS positions precisely */
+    /* align-items: center; */
+    /* justify-content: center; */
+    transition: background-color 0.4s ease-in-out; /* For modal background fade */
+}
+
+.modal-content {
+    /* margin: auto; No margin auto if position:fixed and JS handles position */
+    display: block;
+    /* max-width/max-height will be used by JS to calculate target, but JS sets actual width/height */
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain; /* Default for enlarged view */
+    position: fixed; /* Will be controlled by JS */
+    opacity: 0; /* Start hidden, JS will animate */
+    transform: translate(0,0) scale(1); /* Base transform state */
+    /* Transitions will be set dynamically by JS */
+}
+
+/* Close Button (no changes needed from previous version) */
+.close-button {
+    position: absolute;
+    top: 15px;
+    left: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content.swiping {
+    transition: none !important;
 }

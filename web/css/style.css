@@ -14,6 +14,9 @@ html {
     background-color: var(--color-primary-black);
     height: 100vh;
 }
+body.no-scroll {
+    overflow: hidden;
+}
 
 main {
     padding-bottom: 5rem;
