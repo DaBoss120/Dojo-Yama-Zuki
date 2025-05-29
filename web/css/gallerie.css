@@ -43,7 +43,12 @@ main {
     transform: scale(1.05);
     /* Slightly enlarge image on hover */
 }
-
+@media screen and (max-width: 1100px){
+    /* Remove enlargment for mobile */
+    .all-photos img:hover {
+        transform: none;
+    }    
+}
 /* Modal Styles */
 .modal {
     display: none;
