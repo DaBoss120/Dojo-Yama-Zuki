@@ -214,6 +214,7 @@ header .top-header .menu ul li a:hover {
     background-color: var(--color-primary-dark-blue);
     width: 40%;
     min-width: 350px;
+    max-width: 560px;
     clip-path: polygon(10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%, 0% 10%);
     transition: all 0.2s;
 
