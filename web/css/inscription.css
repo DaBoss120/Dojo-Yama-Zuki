@@ -6,6 +6,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+
 }
 
 h2.essai-gratuit-text {
@@ -96,6 +97,9 @@ h2.essai-gratuit-text {
 
 
 @media (max-width: 768px) {
+    .essai-gratuit h2{
+        font-size: min(5vw, 2rem);
+    }
     .group-element {
         width: 80vw;
         margin: 1rem 1rem
