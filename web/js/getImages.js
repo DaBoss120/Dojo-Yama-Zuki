@@ -6,7 +6,7 @@ async function getImagesFromJson(){
 
         let html = '';
         images.forEach(onePhoto => {
-            html += `<img src="img/gallery/${onePhoto.url}" alt="${onePhoto.title}" />`;
+            html += `<img src="../IMG/gallery/${onePhoto.url}" alt="${onePhoto.title}" />`;
         });
         document.querySelector('.all-photos').innerHTML = html;
     } catch (error) {
@@ -29,7 +29,7 @@ async function getImages() {
 }
 
 // Load images only when gallery tab opened
-if (window.location.pathname.endsWith('gallerie.html')) {
+if (window.location.pathname.endsWith('/gallerie') || window.location.pathname.endsWith('/gallerie/index.html')) {
     window.addEventListener('DOMContentLoaded', getImagesFromJson);
     // window.addEventListener('DOMContentLoaded', function () {
     //     let html = '';

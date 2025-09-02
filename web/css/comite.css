@@ -44,8 +44,8 @@ p{
 }
 .person-comite img{
     width: 100%;
-    padding: 5% 5% 0 5%;
-    aspect-ratio: 1/1;
+    padding: 5% 5% 4% 5%;
+    /* aspect-ratio: 1/1; */
 }
 .person-comite p{
     color: white;
@@ -56,5 +56,6 @@ font-size: clamp(1.2rem, 1.5vw, 30px);
 }
 .person-comite p:nth-of-type(3) {
 font-size: max(1vw, 15.72px);
+margin-bottom: 3%;
 /* font-size: clamp(1rem, 1vw, 20px); */
 }

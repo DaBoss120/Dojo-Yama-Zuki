@@ -14,6 +14,7 @@ html {
     background-color: var(--color-primary-black);
     height: 100vh;
 }
+
 body.no-scroll {
     overflow: hidden;
 }
@@ -160,8 +161,9 @@ header .top-header .menu ul li a:hover {
 .text-block * {
     margin: 0.5rem 0;
 }
+
 /* Make the text stick to the left even with align-items: center on the parent */
-.text-block :is(h2, p){
+.text-block :is(h2, p) {
     align-self: baseline;
 }
 
@@ -176,7 +178,7 @@ header .top-header .menu ul li a:hover {
     padding: 2rem 0;
 }
 
- .animated-text h1 {
+.animated-text h1 {
     font-size: 6rem;
     font-weight: 900;
     text-align: center;
@@ -191,8 +193,71 @@ header .top-header .menu ul li a:hover {
     background-clip: text;
 }
 
+.group-element {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem .5rem;
+
+    background: linear-gradient(to bottom, var(--color-primary-red), var(--color-primary-red)) no-repeat;
+    background-size: 100% 0%;
+    background-color: var(--color-primary-dark-blue);
+    width: 28vw;
+    min-width: 300px;
+    max-width: 560px;
+    clip-path: polygon(10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%, 0% 10%);
+    transition: all 0.2s;
+
+}
+
+.group-element:self:first-of-type {
+    margin-top: none;
+}
+
+.group-element:hover {
+    transform: translateY(-5px);
+    /* background: linear-gradient(to bottom, var(--color-primary-red), var(--color-primary-red)) no-repeat; */
+    background-size: 100% 100%;
+}
+
+.group-element * {
+    margin: 0.5rem 0;
+}
+
+.group-element *:first-child {
+    margin-top: 5%;
+}
+
+.group-element *:last-child {
+    margin-bottom: 5%;
+}
+
+
+.button-primary {
+    background: linear-gradient(to bottom, var(--color-primary-dark-blue), var(--color-primary-dark-blue)) no-repeat;
+    background-size: 100% 0%;
+    background-color: var(--color-primary-red);
+    font-size: 1.5rem;
+    color: white;
+    width: 30%;
+    min-width: 180px;
+    height: 4rem;
+    border: none;
+    clip-path: polygon(10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%, 0% 10%);
+    cursor: pointer;
+    transition: all 0.2s;
+
+}
+
+.button-primary:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(to bottom, var(--color-primary-dark-blue), var(--color-primary-dark-blue)) no-repeat;
+    background-size: 100% 100%;
+}
+
 @media(prefers-reduced-motion: no-preference) {
-     .animated-text h1 {
+    .animated-text h1 {
         animation: text-gradient 5s linear infinite reverse;
     }
 
@@ -203,49 +268,11 @@ header .top-header .menu ul li a:hover {
     }
 }
 
-.plan {
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 2rem;
-    background: linear-gradient(to bottom, var(--color-primary-red), var(--color-primary-red)) no-repeat;
-    background-size: 100% 0%;
-    background-color: var(--color-primary-dark-blue);
-    width: 40%;
-    min-width: 350px;
-    max-width: 560px;
-    clip-path: polygon(10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%, 0% 10%);
-    transition: all 0.2s;
 
-}
-
-.plan:self:first-of-type {
-    margin-top: none;
-}
-
-.plan:hover {
-    transform: translateY(-5px);
-    /* background: linear-gradient(to bottom, var(--color-primary-red), var(--color-primary-red)) no-repeat; */
-    background-size: 100% 100%;
-}
-
-.plan * {
-    margin: 0.5rem 0;
-}
-
-.plan *:first-child {
-    margin-top: 5%;
-}
-
-.plan *:last-child {
-    margin-bottom: 5%;
-}
-
-@media (max-width: 1100px) {
+@media (max-width: 768px) {
 
     * {
-        /* Prevent default browser isual effect when clicking on a link */
+        /* Prevent default browser usual effect when clicking on a link */
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     }
 
@@ -273,14 +300,11 @@ header .top-header .menu ul li a:hover {
     }
 
     header .top-header .menu {
-        display: none;
+        display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         position: fixed;
-        /* transform: translate(-50%, -50%); */
-        /* top: 50%;
-        left: 50%; */
         top: 0;
         left: 0;
         height: 0;
@@ -288,13 +312,20 @@ header .top-header .menu ul li a:hover {
         background-color: var(--color-primary-red);
         z-index: 1;
         overflow: hidden;
-        transition: none;
-        opacity: 0.5;
+        /* Initial hidden state */
+        height: 0;
+        opacity: 0;
+        visibility: hidden;
+        /* Transition for smooth opening/closing */
+        transition: height 0.4s ease-out, opacity 0.3s ease-in, visibility 0s linear 0.4s;
     }
 
     header .top-header .menu.show {
-        display: block;
-        animation: menuBackgroundSlideDown 0.5s ease-out forwards, backgroundFadeIn 0.5s linear forwards;
+        height: 100vh;
+        opacity: 1;
+        visibility: visible;
+        /* Transition for opening */
+        transition: height 0.4s ease-out, opacity 0.3s ease-in;
     }
 
     @keyframes menuBackgroundSlideDown {
@@ -367,6 +398,15 @@ header .top-header .menu ul li a:hover {
         font-weight: 700;
         background: none;
 
+        /* Initial hidden state */
+        opacity: 0;
+        transform: translateY(-20px);
+
+        /* Transition for both opening and closing */
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        /* No delay when closing */
+        transition-delay: 0s;
+
     }
 
     header .top-header .menu ul li a:hover {
@@ -374,8 +414,9 @@ header .top-header .menu ul li a:hover {
     }
 
     header .top-header .menu.show ul li a {
-        animation: fadeIn 0.4s ease forwards;
-        /* Adjust as needed */
+         /* Target state for links when menu is open */
+        opacity: 1;
+        transform: translateY(0px);
     }
 
     @keyframes fadeIn {
@@ -392,27 +433,27 @@ header .top-header .menu ul li a:hover {
 
     /* Stagger the animation for each link */
     header .top-header .menu.show ul li:nth-child(1) a {
-        animation-delay: 0.2s;
+        transition-delay: 0.2s;
     }
 
     header .top-header .menu.show ul li:nth-child(2) a {
-        animation-delay: 0.3s;
+        transition-delay: 0.3s;
     }
 
     header .top-header .menu.show ul li:nth-child(3) a {
-        animation-delay: 0.4s;
+        transition-delay: 0.4s;
     }
 
     header .top-header .menu.show ul li:nth-child(4) a {
-        animation-delay: 0.5s;
+        transition-delay: 0.5s;
     }
 
     header .top-header .menu.show ul li:nth-child(5) a {
-        animation-delay: 0.6s;
+        transition-delay: 0.6s;
     }
 
     header .top-header .menu.show ul li:nth-child(6) a {
-        animation-delay: 0.7s;
+        transition-delay: 0.7s;
     }
 
     header .top-header .menu.closing ul li a {
@@ -431,12 +472,12 @@ header .top-header .menu ul li a:hover {
         }
     }
 
-    .plan {
+    .group-element {
         width: 80%;
         min-width: unset;
     }
 
-   .animated-text h1 {
+    .animated-text h1 {
         font-size: min(12vw, 6rem);
         ;
     }
