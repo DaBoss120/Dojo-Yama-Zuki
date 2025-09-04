@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Select only images directly within the container that are not the modal image itself
         const vignettes = container.querySelectorAll('img:not(#modalImage)');
-        const maxRotate = 6; // Max rotation in degrees for a subtle effect
+        const maxRotate = 1; // Max rotation in degrees for a subtle effect (original value  = 6)
 
         vignettes.forEach(vignette => {
             // Prevent adding listeners multiple times if this function is called again
