@@ -79,6 +79,28 @@ h2.essai-gratuit-text {
     margin-bottom: 5%;
 }
 
+.info-element {
+    margin: auto;
+    /* width: calc(28vw * 1.5);
+    max-width: calc(560px * 1.5); ;
+    min-width: 300px; */
+    margin-top: 25px;
+    /* transform: translateY(25px); */
+}
+
+.info-element * {
+    text-align: justify;
+    margin: 0.5rem 1.5rem;
+}
+
+.button-primary-blue {
+    margin: 25px;
+    width: 28vw;
+    min-width: 300px;
+  max-width: 560px;
+}
+
+
 .button-inscription {
     display: flex;
     justify-content: center;
@@ -97,9 +119,10 @@ h2.essai-gratuit-text {
 
 
 @media (max-width: 768px) {
-    .essai-gratuit h2{
+    .essai-gratuit h2 {
         font-size: min(5vw, 2rem);
     }
+
     .group-element {
         width: 80vw;
         margin: 1rem 1rem
@@ -107,6 +130,17 @@ h2.essai-gratuit-text {
 
     .plans-inscriptions {
         width: 100%;
+    }
+
+    .info-element {
+        width: 80vw;
+        max-width: 560px;
+        transform: translateY(0);
+        margin: 2rem auto;
+        margin-bottom: 0px;
+    }
+    .button-primary-blue {
+        width: 80vw;
     }
     .button-inscription button {
         width: calc(80vw - 80vw * 0.2);
