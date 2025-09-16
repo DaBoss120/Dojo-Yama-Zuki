@@ -103,6 +103,7 @@ h2.essai-gratuit-text {
 
 .button-inscription {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     /* width: 80vw; */
@@ -114,6 +115,7 @@ h2.essai-gratuit-text {
     /* Reduce width of 20% compared to the group-element */
     width: calc(28vw - 28vw * 0.2);
     max-width: calc(560px - 560px * 0.2);
+    margin-bottom: 1rem;
 }
 
 
