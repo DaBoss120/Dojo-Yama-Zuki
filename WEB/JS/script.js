@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', function () {
     const isOnHomePage = baseUrl == window.location.href || baseUrl + '/Dojo-Yama-Zuki/' == window.location.href;
     topHeader.innerHTML = `
      <div class="logo">
-                <a href="/"><img src="${isOnHomePage ? "WEB/IMG/logo.jpg" : "../WEB/IMG/logo.jpg"}" alt="logo"></a>
+                <a href="/Dojo-Yama-Zuki/"><img src="${isOnHomePage ? "WEB/IMG/logo.jpg" : "../WEB/IMG/logo.jpg"}" alt="logo"></a>
             </div>
             <div class="menu" id="menu"> 
                 <ul>
