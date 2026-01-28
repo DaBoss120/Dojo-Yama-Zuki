@@ -12,11 +12,11 @@ window.addEventListener('DOMContentLoaded', function () {
             </div>
             <div class="menu" id="menu"> 
                 <ul>
-                    <li><a href="/">Accueil</a></li>
-                    <li><a href="/inscription">Inscription</a></li>
-                    <li><a href="/comite/">Comité</a></li>
-                    <li><a href="/contact/">Contact</a></li>
-                    <li><a href="/gallerie/">Gallerie</a></li>
+                    <li><a href="/Dojo-Yama-Zuki/">Accueil</a></li>
+                    <li><a href="/Dojo-Yama-Zuki/inscription">Inscription</a></li>
+                    <li><a href="/Dojo-Yama-Zuki/comite/">Comité</a></li>
+                    <li><a href="/Dojo-Yama-Zuki/contact/">Contact</a></li>
+                    <li><a href="/Dojo-Yama-Zuki/gallerie/">Gallerie</a></li>
                 </ul>
             </div>
             
