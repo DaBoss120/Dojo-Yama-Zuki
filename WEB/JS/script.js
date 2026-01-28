@@ -8,15 +8,15 @@ window.addEventListener('DOMContentLoaded', function () {
     const isOnHomePage = baseUrl == window.location.href || baseUrl + '/Dojo-Yama-Zuki/' == window.location.href;
     topHeader.innerHTML = `
      <div class="logo">
-                <a href="/Dojo-Yama-Zuki"><img src="${isOnHomePage ? "WEB/IMG/logo.jpg" : "../WEB/IMG/logo.jpg"}" alt="logo"></a>
+                <a href="/"><img src="${isOnHomePage ? "WEB/IMG/logo.jpg" : "../WEB/IMG/logo.jpg"}" alt="logo"></a>
             </div>
             <div class="menu" id="menu"> 
                 <ul>
-                    <li><a href="/Dojo-Yama-Zuki">Accueil</a></li>
-                    <li><a href="/Dojo-Yama-Zuki/inscription">Inscription</a></li>
-                    <li><a href="/Dojo-Yama-Zuki/comite/">Comité</a></li>
-                    <li><a href="/Dojo-Yama-Zuki/contact/">Contact</a></li>
-                    <li><a href="/Dojo-Yama-Zuki/gallerie/">Gallerie</a></li>
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/inscription">Inscription</a></li>
+                    <li><a href="/comite/">Comité</a></li>
+                    <li><a href="/contact/">Contact</a></li>
+                    <li><a href="/gallerie/">Gallerie</a></li>
                 </ul>
             </div>
             
