@@ -16,25 +16,25 @@ async function getImagesFromJson(){
 
 async function getImages() {
     try {
-        const response = await fetch('php/getImages.php');
+        const response = await fetch('../WEB/php/getImages.php');
+        // const response = await fetch('http://localhost:3000/WEB/php/getImages.php');
         const images = await response.json();
         let html = '';
         images.forEach(onePhoto => {
-            html += `<img src="img/gallery/${onePhoto}" alt="photo" />`;
+            html += `<img src="../WEB/IMG/gallery/${onePhoto}" alt="photo" />`;
         });
         document.querySelector('.all-photos').innerHTML = html;
     } catch (error) {
         console.error('Error fetching images:', error);
     }
 }
-
 // Load images only when gallery tab opened
-if (window.location.pathname.endsWith('/gallerie') || window.location.pathname.endsWith('/gallerie/index.html')) {
-    window.addEventListener('DOMContentLoaded', getImagesFromJson);
+if (window.location.pathname.endsWith('/gallerie/') || window.location.pathname.endsWith('/gallerie/index.html')) {
+    window.addEventListener('DOMContentLoaded', getImages);
     // window.addEventListener('DOMContentLoaded', function () {
     //     let html = '';
     //     getImages.forEach(onePhoto => {
-    //         html +=`<img src="img/gallery/${onePhoto}" alt="photo" />`
+    //         html +=`<img src="../IMG/gallery/${onePhoto}" alt="photo" />`
     //     });
     //     document.getElementsByClassName('all-photos').innerHTML = html;
     // });
@@ -47,7 +47,7 @@ if (window.location.pathname.endsWith('/gallerie') || window.location.pathname.e
 //         const images = await response.json();
 //         let html = '';
 //         images.forEach(onePhoto => {
-//             html += `<img src="img/gallery/${onePhoto}" alt="photo" />`;
+//             html += `<img src="../IMG/gallery/${onePhoto}" alt="photo" />`;
 //         });
 //         document.querySelector('.all-photos').innerHTML = html;
 //     } catch (error) {
