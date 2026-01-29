@@ -16,7 +16,13 @@ if (isset($_SERVER['HTTP_ORIGIN']) && in_array($_SERVER['HTTP_ORIGIN'], $allowed
 $imagesDir = '../IMG/gallery';
 // It's a good idea to check if the directory exists to avoid PHP errors
 if (is_dir($imagesDir)) {
-    $images = array_diff(scandir($imagesDir), array('.', '..'));
+    $allFiles = scandir($imagesDir);
+    // $images = array_diff(scandir($imagesDir), array('.', '..'));
+    $images = array_filter($allFiles, function($file) {
+        $allowedExtensions = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
+        $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+        return in_array($ext, $allowedExtensions);
+    });
     echo json_encode(array_values($images));
 } else {
     echo json_encode([]);
