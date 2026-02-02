@@ -29,7 +29,7 @@ async function getImages() {
     }
 }
 // Load images only when gallery tab opened
-if (window.location.pathname.endsWith('/gallerie/') || window.location.pathname.endsWith('/gallerie/index.html')) {
+if (window.location.pathname.endsWith('/galerie/') || window.location.pathname.endsWith('/galerie/index.html')) {
     window.addEventListener('DOMContentLoaded', getImages);
     // window.addEventListener('DOMContentLoaded', function () {
     //     let html = '';

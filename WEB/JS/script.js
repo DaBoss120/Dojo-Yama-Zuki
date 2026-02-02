@@ -16,7 +16,7 @@ window.addEventListener('DOMContentLoaded', function () {
                     <li><a href="/inscription">Inscription</a></li>
                     <li><a href="/comite/">Comité</a></li>
                     <li><a href="/contact/">Contact</a></li>
-                    <li><a href="/gallerie/">Gallerie</a></li>
+                    <li><a href="/galerie/">Galerie</a></li>
                 </ul>
             </div>
             
