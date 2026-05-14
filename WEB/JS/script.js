@@ -31,7 +31,7 @@ window.addEventListener('DOMContentLoaded', function () {
             </label>
                
     `
-    this.document.querySelector('main').style.transition = 'opacity 0.5s';
+    this.document.querySelector('main').style.transition = 'opacity 0.5s';  
     setTimeout(() => {
         this.document.querySelector('main').style.opacity = 1;
     }, 10);
