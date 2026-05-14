@@ -442,7 +442,7 @@ header .top-header .menu ul li a:hover {
         opacity: 1;
         align-self: center;
         margin-right: 2rem;
-        z-index: 2;
+        z-index: 11;
         /* size: 5rem; */
     }
 
@@ -468,7 +468,7 @@ header .top-header .menu ul li a:hover {
         height: 0;
         width: 100vw;
         background-color: var(--color-primary-red);
-        z-index: 1;
+        z-index: 10;
         overflow: hidden;
         /* Initial hidden state */
         height: 0;
