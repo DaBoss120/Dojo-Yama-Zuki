@@ -383,12 +383,6 @@ header .top-header .menu ul li a:hover {
     background-size: 100% 100%;
 }
 
-.map-container{
-    width: 80%;
-    max-width: 1500px;
-    overflow: hidden;
-}
-
 @media(prefers-reduced-motion: no-preference) {
     .animated-text h1 {
         animation: text-gradient 5s linear infinite reverse;
